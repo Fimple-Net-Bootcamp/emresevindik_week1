@@ -22,13 +22,14 @@ Book book2 = new Book
 
 Member member1 = new Member
 {
-    name = "Member1",
+    name = "Member2",
     surname = "MemberSurname",
     membershipNumber = "Membershipnumber",
 };
 
 library.AddBook(book1);
 library.AddBook(book2);
+
 
 library.LendBook(book1, member1);
 
