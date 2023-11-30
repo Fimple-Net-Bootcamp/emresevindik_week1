@@ -22,7 +22,7 @@ Book book2 = new Book
 
 Member member1 = new Member
 {
-    name = "Member1",
+    name = "Member2",
     surname = "MemberSurname",
     membershipNumber = "Membershipnumber",
 };
