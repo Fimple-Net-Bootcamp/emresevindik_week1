@@ -9,10 +9,9 @@ namespace LibraryApp.Entities
 {
     public class Book : Literature, IPrintable
     {
-        public void Print()
+        public Book(string id, string name, string author, string year) : base(id, name, author, year)
         {
-            /*Book book = new Book();
-            Console.WriteLine(book.id + " " + book.name + " " + book.writer + " " + book.year);*/
+
         }
     }
 }

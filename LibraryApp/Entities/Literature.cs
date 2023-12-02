@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibraryApp.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,59 +7,24 @@ using System.Threading.Tasks;
 
 namespace LibraryApp.Entities
 {
-    public class Literature
+    public class Literature : IPrintable
     {
-        private string Id { get; set; }
-        private string Name { get; set; }
-        private string Writer { get; set; }
-        private string Year { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Author { get; set; }
+        public string Year { get; set; }
 
-        public string id
+        public Literature(string id, string name, string author, string year)
         {
-            get
-            {
-                return Id;
-            }
-            set
-            {
-                Id = value;
-            }
+            Id = id;
+            Name = name;
+            Author = author;
+            Year = year;
         }
 
-        public string name
+        public void Print()
         {
-            get
-            {
-                return Name;
-            }
-            set
-            {
-                Name = value;
-            }
-        }
-
-        public string writer
-        {
-            get
-            {
-                return Writer;
-            }
-            set
-            {
-                Writer = value;
-            }
-        }
-
-        public string year
-        {
-            get
-            {
-                return Year;
-            }
-            set
-            {
-                Year = value;
-            }
+            Console.WriteLine($"Name: {Name}, Author: {Author}, Year: {Year}");
         }
     }
 }

@@ -21,27 +21,55 @@ namespace LibraryApp.Entities
         public void AddBook(Book book)
         {
             books.Add(book);
-            Console.WriteLine(book.writer);
+            Console.WriteLine(book.Name + " book added");
         }
 
         public void DeleteBook(Book book)
         {
+            if (books.Contains(book))
+            {
+                Console.WriteLine("Book already exists.");
+            }
             books.Remove(book);
+            Console.WriteLine("Book deleted");
+
         }
 
         public void LendBook(Book book, Member member)
         {
-            member.books.Add(book);
+            member.Books.Add(book);
             books.Remove(book);
+            Console.WriteLine("Book Lended");
         }
 
         public void ReturnBook(Book book, Member member)
         {
-            if (!books.Contains(book) && member.books.Contains(book))
+            if (!books.Contains(book) && member.Books.Contains(book))
             {
-                member.books.Remove(book);
+                member.Books.Remove(book);
                 books.Add(book);
+                
             }
+        }
+
+        public void AddMember(Member member)
+        {
+            if (!members.Contains(member))
+            {
+                members.Add(member);
+                Console.WriteLine("Member added!");
+            }
+            
+        }
+
+        public void DeleteMember(Member member)
+        {
+            if (!members.Contains(member))
+            {
+                members.Remove(member);
+                Console.WriteLine("Member deleted!");
+            }
+
         }
     }
 }

@@ -9,67 +9,28 @@ namespace LibraryApp.Entities
 {
     public class Member : IPrintable
     {
-        private string Name { get; set; }
-        private string Surname { get; set; }
-        private string MembershipNumber { get; set; }
-        private List<Book> Books { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string MembershipNumber { get; set; }
+        public List<Book> Books { get; set; }
 
-        public Member()
+        public Member(string name, string surname, string membershipNumber)
         {
-            books = new List<Book>();
+            Name = name;
+            Surname = surname;
+            MembershipNumber = membershipNumber;
+            Books = new List<Book>();
         }
 
-        public string name
-        {
-            get
-            {
-                return Name;
-            }
-            set
-            {
-                Name = value;
-            }
-        }
-
-        public string surname
-        {
-            get
-            {
-                return Surname;
-            }
-            set
-            {
-                Surname = value;
-            }
-        }
-
-        public string membershipNumber
-        {
-            get
-            {
-                return MembershipNumber;
-            }
-            set
-            {
-                MembershipNumber = value;
-            }
-        }
-
-        public List<Book> books
-        {
-            get
-            {
-                return Books;
-            }
-            set
-            {
-                Books = value;
-            }
-        }
 
         public void Print()
         {
-            Console.WriteLine(surname + " " + name + " " + membershipNumber);
+            Console.WriteLine($"Name: {Name}, Surname: {Surname}, Membership Number: {MembershipNumber}");
+
+            foreach (var book in Books)
+            {
+                book.Print();
+            }
         }
     }
 }
